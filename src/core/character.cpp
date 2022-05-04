@@ -28,3 +28,9 @@ int Character::skillLevelUp(int skillID, int levelUp) {
     }
     return 1;
 }
+
+Character::~Character() {
+    for (auto a: this->skills) {
+        delete a;
+    }
+}

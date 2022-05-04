@@ -11,6 +11,7 @@ class Skill {
 public:
     Skill() {};
     Skill(int id, int level); // initialize with parser
+    virtual ~Skill();
     int getID(void) {return this->id;}
     int LevelUp(int levelUp); // `levelUp` levels up
     friend std::map<std::string, double> getFinalProperties(void); //<TODO>
