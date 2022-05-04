@@ -11,6 +11,7 @@ class Character {
 public:
     Character() {};
     Character(std::string name) : name(name) {};
+    virtual ~Character();
     std::string getName(void) {return name;}
     void setName(std::string name) {this->name = name;}
     int addNewSkill(int skillID);
