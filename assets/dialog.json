@@ -118,9 +118,9 @@
         "speaker": "001",
         "has_branch": true,
         "next_dialog": [
-            "00100",
-            "<TODO>"
-        ]
+            "00100"
+        ],
+        "<TODO>": "<TODO>"
     },
     "00012": {
         "id": 12,
@@ -128,9 +128,9 @@
         "speaker": "001",
         "has_branch": false,
         "next_dialog": [
-            "00200",
-            "<TODO>"
-        ]
+            "00200"
+        ],
+        "<TODO>": "<TODO>"
     },
     "00100": {
         "id": 100,
@@ -166,9 +166,9 @@
         "speaker": "001",
         "has_branch": true,
         "next_dialog": [
-            "00100",
-            "<TODO>"
-        ]
+            "00100"
+        ],
+        "<TODO>": "<TODO>"
     },
     "00104": {
         "id": 104,
