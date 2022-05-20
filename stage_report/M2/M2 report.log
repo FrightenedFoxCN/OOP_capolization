@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.7.12)  7 MAY 2022 10:47
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.7.12)  7 MAY 2022 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -922,7 +922,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
 (fontspec)                Script "CJK".
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 89.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 91.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -965,6 +965,6 @@ Here is how much of TeX's memory you used:
  47764 multiletter control sequences out of 15000+600000
  436695 words of font info for 91 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 128i,12n,130p,1263b,1110s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,11n,130p,1263b,1110s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on M2 report.pdf (3 pages).
