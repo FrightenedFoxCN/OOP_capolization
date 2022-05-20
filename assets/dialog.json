@@ -131,5 +131,64 @@
             "00200",
             "<TODO>"
         ]
+    },
+    "00100": {
+        "id": 100,
+        "data": "先看看旁边带刻痕的石板吧。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00101"
+        ]
+    },
+    "00101": {
+        "id": 101,
+        "data": "石板看起来有点年头了，青苔附着在上面，在黑暗中让你更加难以看情上面的字迹。",
+        "speaker": "000",
+        "has_branch": false,
+        "next_dialog": [
+            "00104"
+        ]
+    },
+    "00102": {
+        "id": 102,
+        "data": "接下来要干什么呢？",
+        "speaker": "001",
+        "has_branch": true,
+        "next_dialog": [
+            "00103",
+            "00012"
+        ]
+    },
+    "00103": {
+        "id": 103,
+        "data": "接着在洞穴里转转吧。",
+        "speaker": "001",
+        "has_branch": true,
+        "next_dialog": [
+            "00100",
+            "<TODO>"
+        ]
+    },
+    "00104": {
+        "id": 104,
+        "data": "你离开了石板。",
+        "speaker": "000",
+        "has_branch": false,
+        "next_dialog": [
+            "00102"
+        ]
+    },
+    "00105": {
+        "id": 105,
+        "data": "你用手摩挲着石板上的刻痕，试图识读石板上的痕迹。",
+        "speaker": "000",
+        "has_branch": true,
+        "rand_branch": true,
+        "next_dialog" :[
+            "00106",
+            "00107",
+            "00108"
+        ]
     }
 }

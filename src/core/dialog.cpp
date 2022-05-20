@@ -41,6 +41,7 @@ std::string Dialog::getNextDialog(void) {
         return nextDialog[tolower(label) - 'a'];
     } else {
         // randomize
+        // <TODO> Add non-uniform random
         std::default_random_engine randEng(time(0));
         std::uniform_int_distribution<unsigned> dist(0, nextDialog.size() - 1);
         return nextDialog[dist(randEng)];
