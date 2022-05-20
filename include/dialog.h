@@ -19,7 +19,7 @@ public:
     Dialog() {}
     Dialog(std::string);
     #ifdef DEBUG
-    void showDialog(void) {
+    void showDialogDebug(void) {
         std::cout << "id: " << id << std::endl
                   << "data: " << data << std::endl
                   << "speaker: " << speaker << std::endl
@@ -35,10 +35,13 @@ public:
         }
     }
     #endif
+    void showDialog(void);
+    bool hasNextDialog(void) {return nextDialog.size();}
     bool hasBranch(void) {return branch;}
     bool isRandBranch(void) {return randBranch;}
     std::string getNextDialog(void);
     void applyEffect(Character &c);
+    friend Character;
 };
 
 #endif

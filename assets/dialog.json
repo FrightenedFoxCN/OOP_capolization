@@ -126,7 +126,7 @@
         "id": 12,
         "data": "再留在这个山洞里该发霉了。",
         "speaker": "001",
-        "has_branch": true,
+        "has_branch": false,
         "next_dialog": [
             "00200",
             "<TODO>"
