@@ -2,23 +2,22 @@
 #define _CHARACTER_H_
 #include <string>
 #include <vector>
-#include "skill.h"
 
 class Character {
     std::string name;
-    std::vector<Skill *> skills;
-    bool hasSkill(int skillID);
     double productivity = 1.00;
+    double diligence = 1.00;
     double leadership = 1.00;
     double religion = 1.00;
+    double intellectual = 1.00;
+    double eloquence = 1.00;
+    double creativity = 1.00;
 public:
     Character() {};
     Character(std::string name) : name(name) {};
     virtual ~Character();
     std::string getName(void) {return name;}
     void setName(std::string name) {this->name = name;}
-    int addNewSkill(int skillID);
-    int skillLevelUp(int skillID, int levelUp);
 };
 
 #endif

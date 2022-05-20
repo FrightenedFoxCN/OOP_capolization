@@ -1,0 +1,135 @@
+{
+    "00000": {
+        "id": 0,
+        "data": "你在一个潮湿的山洞中醒来。",
+        "speaker": "000",
+        "has_branch": false,
+        "next_dialog": [
+            "00001"
+        ]
+    },
+    "00001": {
+        "id": 1,
+        "data": "山洞很暗，可以看见周围的苔藓，你手边的石板上刻着一些形如文字的笔迹。",
+        "speaker": "000",
+        "has_branch": false,
+        "next_dialog": [
+            "00002"
+        ]
+    },
+    "00002": {
+        "id": 2,
+        "data": "你回忆起陷入沉睡前的时光……",
+        "speaker": "000",
+        "has_branch": false,
+        "next_dialog": [
+            "00003"
+        ]
+    },
+    "00003": {
+        "id": 3,
+        "data": "我……是谁？",
+        "speaker": "001",
+        "has_branch": true,
+        "next_dialog": [
+            "00004",
+            "00005",
+            "00006",
+            "00007",
+            "00008"
+        ]
+    },
+    "00004": {
+        "id": 4,
+        "data": "我是一个学生。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00010"
+        ]
+    },
+    "00005": {
+        "id": 5,
+        "data": "我是一个社畜。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00010"
+        ],
+        "effect": {
+            "DIL": 1,
+            "CRT": -1
+        }
+    },
+    "00006": {
+        "id": 6,
+        "data": "我是一个学者。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00010"
+        ],
+        "effect": {
+            "INT": 1,
+            "CRT": 1,
+            "LDS": -1,
+            "ELQ": -1
+        }
+    },
+    "00007": {
+        "id": 7,
+        "data": "我是一个演员。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00010"
+        ],
+        "effect": {
+            "DIL": -1,
+            "ELQ": 1
+        }
+    },
+    "00008": {
+        "id": 8,
+        "data": "我是一个教师。",
+        "speaker": "001",
+        "has_branch": false,
+        "next_dialog": [
+            "00010"
+        ],
+        "effect": {
+            "LED": 1,
+            "ELQ": 1
+        }
+    },
+    "00010": {
+        "id": 10,
+        "data": "该起身了，你选择：",
+        "speaker": "000",
+        "has_branch": true,
+        "next_dialog": [
+            "00011",
+            "00012"
+        ]
+    },
+    "00011": {
+        "id": 11,
+        "data": "先在洞穴之内看看吧。",
+        "speaker": "001",
+        "has_branch": true,
+        "next_dialog": [
+            "00100",
+            "<TODO>"
+        ]
+    },
+    "00012": {
+        "id": 12,
+        "data": "再留在这个山洞里该发霉了。",
+        "speaker": "001",
+        "has_branch": true,
+        "next_dialog": [
+            "00200",
+            "<TODO>"
+        ]
+    }
+}
