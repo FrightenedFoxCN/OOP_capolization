@@ -14,6 +14,13 @@ Dialog::Dialog(std::string s) {
     branch = dialog_json[s]["has_branch"].get<bool>();
     if (dialog_json[s].contains("rand_branch")) {
         randBranch = dialog_json[s]["rand_branch"].get<bool>();
+        uint32_t tot_possibility = 0;
+        for (auto a:dialog_json[s]["possibility"]) {
+            tot_possibility += a;
+        }
+        for (auto a:dialog_json[s]["possibility"]) {
+            possibility.push_back(float(a) / float(tot_possibility));
+        }
     } else {
         randBranch = false;
     }
@@ -41,10 +48,14 @@ std::string Dialog::getNextDialog(void) {
         return nextDialog[tolower(label) - 'a'];
     } else {
         // randomize
-        // <TODO> Add non-uniform random
         std::default_random_engine randEng(time(0));
-        std::uniform_int_distribution<unsigned> dist(0, nextDialog.size() - 1);
-        return nextDialog[dist(randEng)];
+        std::uniform_real_distribution<float> dist(0, 1);
+        uint32_t dialog_index = 0;
+        float tot_possibility = 0;
+        for (; tot_possibility < dist(randEng); dialog_index++) {
+            tot_possibility += possibility[dialog_index];
+        }
+        return nextDialog[dialog_index];
     }
 }
 

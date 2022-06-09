@@ -14,6 +14,7 @@ class Dialog {
     bool branch;
     bool randBranch;
     std::vector<std::string> nextDialog;
+    std::vector<float> possibility;
     std::map<std::string, int> effect;
 public:
     Dialog() {}
