@@ -45,6 +45,9 @@ std::string Dialog::getNextDialog(void) {
         }
         std::cout << "你选择：";
         std::cin >> label;
+        if (label == 'q') {
+            return "";
+        }
         return nextDialog[tolower(label) - 'a'];
     } else {
         // randomize

@@ -37,6 +37,7 @@ public:
     }
     #endif
     void showDialog(void);
+    int getDialogId(void) {return id;}
     bool hasNextDialog(void) {return nextDialog.size();}
     bool hasBranch(void) {return branch;}
     bool isRandBranch(void) {return randBranch;}
