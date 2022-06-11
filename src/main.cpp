@@ -47,14 +47,8 @@ int main() {
     #endif
       std::string nextDial =  dial.getNextDialog();
       if (nextDial.length() == 0) {
-         if (f.good()) {
-            f.open(userFileName, std::ios::out);
-            f << std::setfill('0') << std::setw(5) << dial.getDialogId();
-         }
-         else {
-            f.open(userFileName, std::ios::ate);
-            f << std::setfill('0') << std::setw(5) << dial.getDialogId();
-         }
+         f.open(userFileName, std::ios::out);
+         f << std::setfill('0') << std::setw(5) << dial.getDialogId();
          f.close();
          return 0;
       }
