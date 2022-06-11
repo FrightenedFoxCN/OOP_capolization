@@ -214,8 +214,7 @@
         "cond_branch": true,
         "next_dialog":[
             "00108",
-            "00109",
-            "00121"
+            "00109"
         ],
         "cond": [
             {"INT>=": 2},
@@ -226,22 +225,34 @@
         "id": 108,
         "data": "你发现石板上的字迹似乎似曾相识，经过一些尝试，你读出了上面的文字：“梦境……爱……手工艺品……”",
         "speaker":"000",
-        "has_branch":false,
+        "has_branch":true,
         "effect": {
             "EPP": 1,
             "INT": 1
         },
+        "rand_branch":true,
         "next_dialog": [
-            "00102"
+            "00102",
+            "00121"
+        ],
+        "possibility":[
+            3,
+            1
         ]
     },
     "00109": {
         "id": 109,
         "data": "这些文字在你看来只是一些不能辨识的人造痕迹，如果有什么东西的话，最好把它拓印下来……",
         "speaker":"000",
-        "has_branch":false,
+        "has_branch":true,
+        "rand_branch":true,
         "next_dialog": [
-            "00102"
+            "00102",
+            "00121"
+        ],
+        "possibility":[
+            3,
+            1
         ]
     },
     "00120": {
@@ -435,7 +446,7 @@
     "00160": {
         "id":160,
         "data":"你看见一群人围着一个水潭，口中念念有词，有水花随着它们的念诵喷溅。",
-        "speaker":"001",
+        "speaker":"000",
         "has_branch":true,
         "rand_branch":true,
         "next_dialog":[
@@ -447,13 +458,14 @@
             "INT":-1
         },
         "possibility":[
-            1,
+            3,
             1
         ]
     },
     "00161": {
         "id":161,
         "data":"他们似乎发现了你，嘶吼着向你冲来，你隐约看见了水潭中的骷髅……",
+        "speaker":"000",
         "has_branch":true,
         "rand_branch":true,
         "next_dialog":[
@@ -468,6 +480,7 @@
     "00162": {
         "id":162,
         "data":"你悄悄地退回到洞里，没有惊动他们。",
+        "speaker":"000",
         "has_branch":false,
         "next_dialog":[
             "00102"
@@ -476,6 +489,7 @@
     "00163": {
         "id":163,
         "data":"他们抓住了你，你很快也成为了水潭中的骷髅中的一员。",
+        "speaker":"000",
         "has_branch":false,
         "next_dialog":[
             "00140"
@@ -484,6 +498,7 @@
     "00164": {
         "id":164,
         "data":"你侥幸逃回到了洞里，他们也没有再追过来……",
+        "speaker":"000",
         "has_branch":false,
         "next_dialog":[
             "00102"
