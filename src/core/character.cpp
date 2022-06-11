@@ -22,6 +22,9 @@ void Character::applyEffect(std::string id, double amount) {
         {"PRD", 0}, {"DIL", 1}, {"LDS", 2}, {"RLG", 3},
         {"INT", 4}, {"ELQ", 5}, {"CRT", 6}, {"EPP", 7}
     };
+    if (!decode.count(id)) {
+        throw std::logic_error("Wrong id");
+    }
     int inner_id = decode[id];
     switch (inner_id) {
     case 0:
