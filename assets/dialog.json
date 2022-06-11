@@ -424,7 +424,62 @@
         ]
     },
     "00159": {
-
+        "id":159,
+        "data":"你走进洞穴深处，里面很黑，你摸黑循着水声走去。",
+        "speaker":"000",
+        "has_branch":false,
+        "next_dialog":[
+            "00160"
+        ]
+    },
+    "00160": {
+        "id":160,
+        "data":"你看见一群人围着一个水潭，口中念念有词，有水花随着它们的念诵喷溅。",
+        "speaker":"001",
+        "has_branch":true,
+        "rand_branch":true,
+        "next_dialog":[
+            "00161",
+            "00162"
+        ],
+        "effect":{
+            "EPP":1,
+            "INT":-1
+        },
+        "possibility":[
+            1,
+            1
+        ]
+    },
+    "00161": {
+        "id":161,
+        "data":"他们似乎发现了你，嘶吼着向你冲来，你隐约看见了水潭中的骷髅……",
+        "has_branch":true,
+        "rand_branch":true,
+        "next_dialog":[
+            "00163",
+            "00164"
+        ],
+        "possibility":[
+            3,
+            1
+        ]
+    },
+    "00162": {
+        "id":162,
+        "data":"你悄悄地退回到洞里，没有惊动他们。",
+        "has_branch":false,
+        "next_dialog":[
+            "00102"
+        ]
+    },
+    "00163": {
+        "id":163,
+        "data":"他们抓住了你，你很快也成为了水潭中的骷髅中的一员。",
+        "has_branch":false,
+        "next_dialog":[
+            "00140"
+        ]
     },
     "00200": {
         "id": 200,
