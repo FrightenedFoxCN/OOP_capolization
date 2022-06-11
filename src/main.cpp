@@ -5,6 +5,8 @@
 #include <fstream>
 #include <iomanip>
 
+Character *Dialog::character = new Character();
+
 int main() {
    std::string userName;
    std::cout << "请输入您的用户名（新用户可新建用户名）" << std::endl;
@@ -31,19 +33,18 @@ int main() {
          }
       }
    }
-   Character *character = new Character(userName);
    Dialog dial;
    if (continueFlag == false) {
       dial = Dialog("00000");
-      dial.setCharacter(character);
+      dial.setCharacterName(userName);
    }
    else {
       std::string prevDial;
       f.open(userFileName, std::ios::in);
       getline(f, prevDial);
       dial = Dialog(prevDial);
-      character->readFromJson(f);
-      dial.setCharacter(character);
+      Dialog::character->readFromJson(f);
+      dial.setCharacter(Dialog::character);
       f.close();
       f.open(userFileName, std::ios::in | std::ios::trunc);
       f.close();
@@ -57,7 +58,7 @@ int main() {
       if (nextDial.length() == 0) {
          f.open(userFileName, std::ios::out);
          f << std::setfill('0') << std::setw(5) << dial.getDialogId() << std::endl;
-         character->writeToJson(f);
+         Dialog::character->writeToJson(f);
          f.close();
          return 0;
       }

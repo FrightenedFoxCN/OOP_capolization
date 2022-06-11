@@ -19,11 +19,12 @@ class Dialog {
     std::vector<std::pair<std::string, double>> nextCondDialog;
     std::vector<float> possibility;
     std::map<std::string, double> effect;
-    Character *character;
 public:
+    static Character *character;
+
     Dialog() {}
     Dialog(std::string s);
-    #ifdef DEBUG
+    #ifndef NDEBUG
     void showDialogDebug(void) {
         std::cout << "id: " << id << std::endl
                   << "data: " << data << std::endl
@@ -42,6 +43,7 @@ public:
     #endif
     void showDialog(void);
     void setCharacter(Character *character) {this->character = character;};
+    void setCharacterName(std::string name) {character->setName(name);}
     int getDialogId(void) {return id;}
     bool hasNextDialog(void) {return nextDialog.size();}
     bool hasBranch(void) {return branch;}
