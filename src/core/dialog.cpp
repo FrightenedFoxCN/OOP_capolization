@@ -31,9 +31,15 @@ Dialog::Dialog(std::string s) {
     for (auto a:dialog_json[s]["effect"].items()) {
         effect.insert(std::pair<std::string, int>(a.key(), a.value()));
     }
-    for (auto a:dialog_json[s]["cond_branch"].items()) {
-        nextCondDialog.push_back(std::pair<std::string, double>(a.key(), a.value()));
+    if (dialog_json[s].contains("cond")) {
+        condBranch = true;
+        for (auto a:dialog_json[s]["cond_branch"].items()) {
+            nextCondDialog.push_back(std::pair<std::string, double>(a.key(), a.value()));
+        }
+    } else {
+        condBranch = false;
     }
+    
     dialog.close();
 }
 
