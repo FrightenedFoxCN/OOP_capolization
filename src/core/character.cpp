@@ -65,7 +65,7 @@ Character *Character::readFromJson(std::string name) {
     std::string username;
     reader >> js;
     if (js.count("name")) {
-        username = js[name];
+        username = js["name"];
     } else {
         throw std::runtime_error("Read character name failed");
     }
@@ -116,15 +116,24 @@ Character *Character::readFromJson(std::string name) {
 
 void Character::writeToJson(std::string name) {
     std::map<std::string, double> c_map = {
-        {"PRD", productivity}, {"DIL", diligence}, {"LDS", leadership}, {"RLG", religion},
-        {"INT", intellectual}, {"ELQ", eloquence}, {"CRT", creativity}, {"EPP", epiphany}
+        {"PRD", productivity}, {"DIL", diligence}, {"LDS", leadership}, 
+        {"RLG", religion}, {"INT", intellectual}, {"ELQ", eloquence}, {"CRT", creativity}, 
+        {"EPP", epiphany}
     };
-    nlohmann::json j_map;
-    j_map.push_back({"name", name});
-    j_map.push_back(c_map);
-    std::ofstream character(name + ".json");
-    character << j_map;
-    character.close();
+    nlohmann::json j_map {
+        {"PRD", productivity}, 
+        {"DIL", diligence}, 
+        {"LDS", leadership},
+        {"RLG", religion}, 
+        {"INT", intellectual}, 
+        {"ELQ", eloquence}, 
+        {"CRT", creativity}, 
+        {"EPP", epiphany},
+        {"name", this->getName()}
+    };
+    std::ofstream writer(name + ".json");
+    writer << j_map;
+    writer.close();
 }
 
 bool Character::testCondition(std::string id, double amount, bool(*comp)(double, double)) {
