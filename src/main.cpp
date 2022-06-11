@@ -54,6 +54,7 @@ int main() {
             f << std::setfill('0') << std::setw(5) << dial.getDialogId();
          }
          f.close();
+         return 0;
       }
       dial = Dialog(nextDial);
       dial.showDialog();

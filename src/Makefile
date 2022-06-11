@@ -1,6 +1,6 @@
 
 all:
-	g++ -I../lib main.cpp core/character.cpp core/dialog.cpp -o ../test.exe
+	g++ -ggdb -I../lib main.cpp core/character.cpp core/dialog.cpp -o ../test.exe
 
 release:
 	g++ -O2 -I../lib main.cpp core/character.cpp core/dialog.cpp -o ../test.exe
