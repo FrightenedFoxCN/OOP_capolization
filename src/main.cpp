@@ -13,6 +13,7 @@ int main() {
    std::fstream f(userFileName);
    bool continueFlag = false;
    if (f.good()) {
+      f.close();
       char isContinue;
       std::cout << "请选择是否从上次的存档点继续游戏[y/n]" << std::endl; 
       while (1) {
