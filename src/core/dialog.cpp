@@ -33,8 +33,8 @@ Dialog::Dialog(std::string s) {
     }
     if (dialog_json[s].contains("cond")) {
         condBranch = true;
-        for (auto a:dialog_json[s]["cond"].items()) {
-            nextCondDialog.push_back(std::pair<std::string, double>(a.key(), a.value()));
+        for (auto a:dialog_json[s]["cond"]) {
+            nextCondDialog.push_back(std::pair<std::string, double>(a.items().begin().key(), a.items().begin().value()));
         }
     } else {
         condBranch = false;
@@ -112,7 +112,7 @@ std::string Dialog::getNextDialog(void) {
         for (; tot_possibility < dist(randEng); dialog_index++) {
             tot_possibility += possibility[dialog_index];
         }
-        return nextDialog[dialog_index];
+        return nextDialog[dialog_index - 1];
     }
 }
 
