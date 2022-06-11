@@ -278,7 +278,7 @@
         "speaker":"000",
         "has_branch":false,
         "next_dialog": [
-            "00124"
+            "00102"
         ]
     },
     "00123":{
@@ -488,6 +488,51 @@
         "has_branch":false,
         "next_dialog": [
             "00201"
+        ]
+    },
+    "00201": {
+
+    },
+    "10000": {
+        "id":10000,
+        "data":"在迈向洞口时，你犹豫了。",
+        "speaker":"000",
+        "has_branch":true,
+        "cond_branch":true,
+        "next_dialog":[
+            "10001",
+            "10002"
+        ],
+        "cond":[
+            {"EPP>=": 5},
+            {"EPP<": 5}
+        ]
+    },
+    "10001": {
+        "id":10001,
+        "data":"你停下了脚步，在洞中坐下。你已经知道了洞外的光景，那些不可名状的光影，不是俗世之人所应触碰之物。",
+        "speaker":"000",
+        "has_branch":false,
+        "next_dialog":[
+            "10003"
+        ]
+    },
+    "10002": {
+        "id":10002,
+        "data":"你向前走去，落入光芒……",
+        "speaker":"000",
+        "has_branch":false,
+        "next_dialog":[
+            ""
+        ]
+    },
+    "10003": {
+        "id":10003,
+        "data":"那么，不如在这里享受片刻的安宁吧。",
+        "speaker": "000",
+        "has_branch":false,
+        "next_dialog":[
+            ""
         ]
     }
 }
