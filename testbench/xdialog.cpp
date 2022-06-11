@@ -6,7 +6,11 @@
 #include <iomanip>
 
 int main() {
-   std::fstream f("history.json");
+   std::string userName;
+   std::cout << "请输入您的用户名（新用户可新建用户名）" << std::endl;
+   std::cin >> userName;
+   std::string userFileName = userName + "_history.json";
+   std::fstream f(userFileName);
    bool continueFlag = false;
    if (f.good()) {
       char isContinue;
@@ -31,7 +35,7 @@ int main() {
    }
    else {
       std::string prevDial;
-      f.open("history.json", std::ios::in);
+      f.open(userFileName, std::ios::in);
       f >> prevDial;
       dial = Dialog(prevDial);
       f.close();
@@ -42,11 +46,11 @@ int main() {
       std::string nextDial =  dial.getNextDialog();
       if (nextDial.length() == 0) {
          if (f.good()) {
-            f.open("history.json", std::ios::out);
+            f.open(userFileName, std::ios::out);
             f << std::setfill('0') << std::setw(5) << dial.getDialogId();
          }
          else {
-            f.open("history.json", std::ios::ate);
+            f.open(userFileName, std::ios::ate);
             f << std::setfill('0') << std::setw(5) << dial.getDialogId();
          }
          f.close();

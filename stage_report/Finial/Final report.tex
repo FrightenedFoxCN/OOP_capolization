@@ -1,0 +1,143 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{chemformula}
+\usepackage{cite}
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{listings}
+
+\setlength{\parskip}{0.5em}
+\title{\heiti 面向对象程序设计\ \ 大程报告}
+\author{\Large \kaishu \textup{刘泓健\ \ 吴一航}}
+
+\ctexset {
+    section = {
+        format={\Large \bfseries \heiti} 
+        } 
+    }
+
+\lstset{
+    columns=fixed,       
+    numbers=left,                                        % 在左侧显示行号
+    numberstyle=\tiny\color{gray},                       % 设定行号格式
+    frame=none,                                          % 不显示背景边框
+    backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+    keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily,
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+    showstringspaces=false,                              % 不显示字符串中的空格
+    language=C++,                                        % 设置语言
+    }
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\fancyhead[C]{面向对象程序设计\ \ 大程报告}
+\begin{document}
+
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\begin{figure}
+        \flushleft
+        \includegraphics[scale=0.4]{0.png}
+    \end{figure}
+    \center 
+	\quad\\[1.5cm]
+	\textsl{\Large Zhejiang University }\\[0.5cm] 
+	\textsl{\large College of Computer Science and Technology}\\[0.5cm] 
+	\makeatletter
+	\HRule \\[0.4cm]
+	{ \huge \bfseries \@title}\\[0.4cm] 
+	\HRule \\[1.5cm]
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \Large
+			\emph{Author:}\\
+			\@author 
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright} \Large \kaishu
+			\emph{Supervisor:} \\
+			\textup{翁恺}
+		\end{flushright}
+	\end{minipage}\\[3cm]
+	\makeatother
+	{\large An Assignment submitted for the ZJU:}\\[0.5cm]
+	{\large {211C0010\ \ 面向对象程序设计}}\\[0.5cm]
+	{\large \today}\\[2cm] 
+	\vfill 
+\end{titlepage}
+    
+    \section{大程简介}
+    在课程大程中，我们实现了一个完整的MUD游戏。这一游戏
+
+    \section{使用的技术}
+    
+    \section{代码基本框架}
+    本月的大程设计实现的代码基本框架如下：
+\begin{lstlisting}
+.
+|——assets(游戏所需图片、文案等资源)
+     |——dialog.json
+|——doc(大程文档，如规范性文档以及注释文档等)
+     |——general.md(规范文档)
+|——include(自主设计的头文件)
+     |——character.h
+     |——skill.h
+     |——community.h
+     |——infrastructure.h
+     |——policy.h
+     |——technology.h
+|——lib(外部引用库，如JSON parser及图形界面等所需外部库)
+     |——nlohmann
+          |——...
+|——src(大程源代码)
+     |——core
+          |——dialog.cpp
+     |——utils
+     |——main.cpp(初始执行文件)
+     |——Makefile
+|——testbench(测试文件)
+     |——xcharacter.cpp
+     |——xjson.cpp
+     |——xdialog.cpp
+|——Makefile
+\end{lstlisting}
+    
+    \section{基本设计}
+    在这一部分中，我们完成了开场白的设计。当程序运行时（注意：程序的运行方式
+    在根目录README中），会进入游戏初始化界面，然后开始我们的初始对话。
+    主函数的循环中，我们直到没有下一条对话时结束循环，结束游戏。
+
+    在对话类的设计中，我们关注以下几个重要的属性：
+    \begin{enumerate}
+        \item branch：分支，根据玩家所作出的选择进入某一分支
+        \item randBranch：随机分支，玩家无需做出选择，系统自动创造随机分支
+        \item nextDialog：指向下一dialog的信息
+    \end{enumerate}
+    
+    当然后续还会有条件分支的设计，这些将会是下一阶段完善剧情时会逐步实现的内容。
+
+    我们不难发现，在运行游戏时，主体结构是首先运行当前分支的内容，然后根据玩家选择或者系统设定获取下一分支，
+    接下来构造下一分支继续执行。特别注意的是，我们是通过json来实现数据的存储的，
+    我们利用上一次报告中提及的json parser，取出我们dialog.json中的数据然后进行
+    类的初始化等。并且这一parser还有自带的异常处理，当用户给出错误的输入时会自动
+    抛出异常。当然，这一异常处理我们会在下一次整体框架完善时做进一步的改进。
+    
+    \section{下一阶段展望}
+    在下一阶段的设计中，我们将会完成整个游戏的设计。这一方面是会将我们准备好的
+    后续文案放置在asset中，另一方面是完善community、infrastructure等类
+    的设计，构建起完整的文明游戏框架。除此之外，异常处理部分我们也会对原先的
+    库中的处理做一定的优化，最后会根据时间决定是否使用图形库设计。
+
+\end{document}
