@@ -8,6 +8,7 @@
 Character *Dialog::character = new Character();
 
 int main() {
+   SetConsoleOutputCP(65001);
    std::string userName;
    std::cout << "请输入您的用户名（新用户可新建用户名）" << std::endl;
    std::cin >> userName;
