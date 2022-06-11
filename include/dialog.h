@@ -16,9 +16,10 @@ class Dialog {
     std::vector<std::string> nextDialog;
     std::vector<float> possibility;
     std::map<std::string, int> effect;
+    Character *character;
 public:
     Dialog() {}
-    Dialog(std::string);
+    Dialog(std::string s);
     #ifdef DEBUG
     void showDialogDebug(void) {
         std::cout << "id: " << id << std::endl
@@ -37,13 +38,13 @@ public:
     }
     #endif
     void showDialog(void);
+    void setCharacter(Character *character) {this->character = character;};
     int getDialogId(void) {return id;}
     bool hasNextDialog(void) {return nextDialog.size();}
     bool hasBranch(void) {return branch;}
     bool isRandBranch(void) {return randBranch;}
     std::string getNextDialog(void);
     void applyEffect(Character &c);
-    friend Character;
 };
 
 #endif
