@@ -42,7 +42,9 @@ int main() {
    }
    dial.showDialog();
    while (dial.hasNextDialog()){
+    #ifdef NDEBUG
       Sleep(1000);
+    #endif
       std::string nextDial =  dial.getNextDialog();
       if (nextDial.length() == 0) {
          if (f.good()) {
