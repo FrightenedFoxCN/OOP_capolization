@@ -19,14 +19,6 @@ public:
     virtual ~Character() {};
     std::string getName(void) {return name;}
     void setName(std::string name) {this->name = name;}
-    void increaseProductivity(double amount) {this->productivity += amount; }
-    void increaseDiligence(double amount) {this->diligence += amount; }
-    void increaseLeadership(double amount) {this->leadership += amount; }
-    void increaseReligion(double amount) {this->religion += amount; }
-    void increaseIntellectual(double amount) {this->intellectual += amount; }
-    void increaseEloquence(double amount) {this->eloquence += amount; }
-    void increaseCreativity(double amount) {this->creativity += amount; }
-    void increaseEpiphany(double amount) {this->epiphany += amount; }
 
     void applyEffect(std::string id, double amount);
     bool testCondition(std::string id, double amount, bool(*comp)(double, double));

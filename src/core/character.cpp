@@ -8,14 +8,14 @@
 
 void Character::printCharacter() {
     std::cout << "============== Character " << name << " ==============" << std::endl;
-    std::cout << "\tProductivity: " << productivity << std::endl;
-    std::cout << "\tDiligence: " << diligence << std::endl;
-    std::cout << "\tLeadership: " << leadership << std::endl;
-    std::cout << "\tReligion: " << religion << std::endl;
-    std::cout << "\tIntellectual: " << intellectual << std::endl;
-    std::cout << "\tEloquence: " << eloquence << std::endl;
-    std::cout << "\tCreativity: " << creativity << std::endl;
-    std::cout << "\tEpiphany: " << epiphany << std::endl;
+    std::cout << "\tProductivity:\t" << productivity << std::endl;
+    std::cout << "\tDiligence:\t" << diligence << std::endl;
+    std::cout << "\tLeadership:\t" << leadership << std::endl;
+    std::cout << "\tReligion:\t" << religion << std::endl;
+    std::cout << "\tIntellectual:\t" << intellectual << std::endl;
+    std::cout << "\tEloquence:\t" << eloquence << std::endl;
+    std::cout << "\tCreativity:\t" << creativity << std::endl;
+    std::cout << "\tEpiphany:\t" << epiphany << std::endl;
     std::cout << "================================================" << std::endl;
 }
 
@@ -30,28 +30,28 @@ void Character::applyEffect(std::string id, double amount) {
     int inner_id = decode[id];
     switch (inner_id) {
     case 0:
-        increaseProductivity(amount);
+        productivity += amount;
         break;
     case 1:
-        increaseDiligence(amount);
+        diligence += amount;
         break;
     case 2:
-        increaseLeadership(amount);
+        leadership += amount;
         break;
     case 3:
-        increaseReligion(amount);
+        religion += amount;
         break;
     case 4:
-        increaseIntellectual(amount);
+        intellectual += amount;
         break;
     case 5:
-        increaseEloquence(amount);
+        eloquence += amount;
         break;
     case 6:
-        increaseCreativity(amount);
+        creativity += amount;
         break;
     case 7:
-        increaseEpiphany(amount);
+        epiphany += amount;
         break;
     default:
         throw std::runtime_error("Incorrect inner ID");
