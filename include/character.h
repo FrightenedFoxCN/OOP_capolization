@@ -29,6 +29,7 @@ public:
     void increaseEpiphany(double amount) {this->epiphany += amount; }
 
     void applyEffect(std::string id, double amount);
+    bool testCondition(std::string id, double amount, bool(*comp)(double, double));
     void writeToJson(std::string name);
 
     // Only used for debug

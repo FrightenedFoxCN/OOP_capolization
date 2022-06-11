@@ -187,13 +187,37 @@
         "rand_branch": true,
         "next_dialog" :[
             "00106",
-            "00107",
-            "00108"
+            "00107"
         ],
         "possibility" :[
             1,
             1,
             1
+        ]
+    },
+    "00106": {
+        "id": 106,
+        "data": "你听见洞穴深处传来了轰鸣声，或许还是早点离开为好？",
+        "speaker": "000",
+        "has_branch": true,
+        "next_dialog":[
+            "00107",
+            "00108"
+        ]
+    },
+    "00107": {
+        "id": 107,
+        "data": "你凑近石板，仔细研读其上的字迹。",
+        "speaker": "000",
+        "has_branch": true,
+        "cond_branch": true,
+        "next_dialog":[
+            "00108",
+            "00109"
+        ],
+        "cond": [
+            {"INT>=": 2},
+            {"INT<": 1}
         ]
     }
 }

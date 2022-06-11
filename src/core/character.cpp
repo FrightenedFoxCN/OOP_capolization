@@ -1,4 +1,5 @@
 #include "../../include/character.h"
+#include "../../lib/nlohmann/json.hpp"
 
 #include <iostream>
 #include <exception>
@@ -58,5 +59,27 @@ void Character::applyEffect(std::string id, double amount) {
 }
 
 void Character::writeToJson(std::string name) {
+    
+}
 
+bool Character::testCondition(std::string id, double amount, bool(*comp)(double, double)) {
+    std::map<std::string, int> decode = {
+        {"PRD", 0}, {"DIL", 1}, {"LDS", 2}, {"RLG", 3},
+        {"INT", 4}, {"ELQ", 5}, {"CRT", 6}, {"EPP", 7}
+    };
+    if (!decode.count(id)) {
+        throw std::logic_error("Wrong id");
+    }
+    int inner_id = decode[id];
+    switch (inner_id) {
+        case 0: return comp(productivity, amount);
+        case 1: return comp(diligence, amount);
+        case 2: return comp(leadership, amount);
+        case 3: return comp(religion, amount);
+        case 4: return comp(intellectual, amount);
+        case 5: return comp(eloquence, amount);
+        case 6: return comp(creativity, amount);
+        case 7: return comp(epiphany, amount);
+        default: throw std::runtime_error("inner_id Error"); break;
+    }
 }
