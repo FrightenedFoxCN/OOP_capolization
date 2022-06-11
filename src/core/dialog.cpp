@@ -33,7 +33,7 @@ Dialog::Dialog(std::string s) {
     }
     if (dialog_json[s].contains("cond")) {
         condBranch = true;
-        for (auto a:dialog_json[s]["cond_branch"].items()) {
+        for (auto a:dialog_json[s]["cond"].items()) {
             nextCondDialog.push_back(std::pair<std::string, double>(a.key(), a.value()));
         }
     } else {
