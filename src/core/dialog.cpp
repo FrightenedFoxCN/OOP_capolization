@@ -1,5 +1,6 @@
 #include "..\..\include\dialog.h"
 #include "..\..\lib\nlohmann\json.hpp"
+#include "..\utils\include\comparator.h"
 
 #include <fstream>
 #include <random>
@@ -30,12 +31,59 @@ Dialog::Dialog(std::string s) {
     for (auto a:dialog_json[s]["effect"].items()) {
         effect.insert(std::pair<std::string, int>(a.key(), a.value()));
     }
+    for (auto a:dialog_json[s]["cond_branch"].items()) {
+        nextCondDialog.push_back(std::pair<std::string, double>(a.key(), a.value()));
+    }
     dialog.close();
 }
 
 std::string Dialog::getNextDialog(void) {
+    if (effect.size()) {
+        for (auto a:effect) {
+            try {
+                character->applyEffect(a.first, a.second);
+            } catch(std::logic_error) {
+                std::cout << "数据文件已损坏" << std::endl;
+            }
+        }
+    }
     if (!branch) {
         return nextDialog[0];
+    } else if (condBranch) {
+        for (int i = 0; i < nextCondDialog.size(); i++) {
+            std::string id = nextCondDialog[i].first.substr(0, 3);
+            std::string op = nextCondDialog[i].first.substr(3);
+            if (op == "==") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareEqual)) {
+                    return nextDialog[i];
+                }
+            }
+            else if (op == "<>") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareNotEqual)) {
+                    return nextDialog[i];
+                }
+            }
+            else if (op == ">") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareGreaterThan)) {
+                    return nextDialog[i];
+                }
+            }
+            else if (op == ">=") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareGreaterorEqual)) {
+                    return nextDialog[i];
+                }
+            }
+            else if (op == "<") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareLessThan)) {
+                    return nextDialog[i];
+                }
+            }
+            else if (op == "<=") {
+                if (character->testCondition(id, nextCondDialog[i].second, compareLessorEqual)) {
+                    return nextDialog[i];
+                }
+            }
+        }
     } else if (!randBranch) {
         // need to let the user to choose...
         char label = 'a';

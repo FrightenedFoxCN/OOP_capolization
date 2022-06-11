@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include <utility>
 
 class Dialog {
     int id;
@@ -13,9 +14,11 @@ class Dialog {
     std::string speaker;
     bool branch;
     bool randBranch;
+    bool condBranch;
     std::vector<std::string> nextDialog;
+    std::vector<std::pair<std::string, double>> nextCondDialog;
     std::vector<float> possibility;
-    std::map<std::string, int> effect;
+    std::map<std::string, double> effect;
     Character *character;
 public:
     Dialog() {}
@@ -44,7 +47,6 @@ public:
     bool hasBranch(void) {return branch;}
     bool isRandBranch(void) {return randBranch;}
     std::string getNextDialog(void);
-    void applyEffect(Character &c);
 };
 
 #endif
