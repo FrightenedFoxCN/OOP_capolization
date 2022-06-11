@@ -231,7 +231,7 @@
             "EPP": 1,
             "INT": 1
         },
-        "next_branch": [
+        "next_dialog": [
             "00102"
         ]
     },
@@ -240,7 +240,7 @@
         "data": "这些文字在你看来只是一些不能辨识的人造痕迹，如果有什么东西的话，最好把它拓印下来……",
         "speaker":"000",
         "has_branch":false,
-        "next_branch": [
+        "next_dialog": [
             "00102"
         ]
     },
@@ -249,7 +249,7 @@
         "data": "还是早点离开为好。",
         "speaker": "000",
         "has_branch":false,
-        "next_branch":[
+        "next_dialog":[
             "10000"
         ]
     },
@@ -263,7 +263,7 @@
             "EPP":1,
             "INT":-1
         },
-        "next_branch":[
+        "next_dialog":[
             "00122",
             "00123"
         ],
@@ -277,7 +277,7 @@
         "data":"它在洞中嘶吼着，声音几乎可以震破你的耳膜。你缩在洞穴的角落，躲开了它的冲撞，看着它冲出洞口，消失在一篇强光之中，只剩下洞穴里的回声依然在回荡。",
         "speaker":"000",
         "has_branch":false,
-        "next_branch": [
+        "next_dialog": [
             "00124"
         ]
     },
@@ -286,7 +286,7 @@
         "data":"它向你的方向猛冲，似乎要拥抱你。你来不及躲闪，被它撞到了岩壁之上。",
         "speaker":"000",
         "has_branch":false,
-        "next_branch":[
+        "next_dialog":[
             "00140"
         ]
     },
@@ -296,7 +296,7 @@
         "speaker":"000",
         "has_branch":true,
         "cond_branch":true,
-        "next_branch":[
+        "next_dialog":[
             "00141",
             "00142"
         ],
@@ -310,7 +310,7 @@
         "data":"但你并不觉得遗憾，死亡至少证明了你的实存；而且，这是命定的终点……",
         "speaker":"000",
         "has_branch":false,
-        "next_branch":[
+        "next_dialog":[
             ""
         ]
     },
@@ -319,7 +319,7 @@
         "data":"如果有可能，如果还可以再来一次……",
         "speaker":"001",
         "has_branch":false,
-        "next_branch":[
+        "next_dialog":[
             ""
         ]
     },
@@ -328,7 +328,7 @@
         "data": "在山洞的角落里，躺着一堆木板，似乎还有燃烧过的痕迹，在那旁边或许可以找到什么东西。",
         "speaker":"000",
         "has_branch":false,
-        "next_branch":[
+        "next_dialog":[
             "00151"
         ]
     },
@@ -338,7 +338,7 @@
         "speaker":"000",
         "has_branch":true,
         "rand_branch":true,
-        "next_branch": [
+        "next_dialog": [
             "00152",
             "00153"
         ],
@@ -352,22 +352,60 @@
         "data": "你发现了一些野兽皮毛的残骸，或许用它们和灰烬可以拓印一些东西……",
         "speaker":"000",
         "has_branch":true,
-        "next_branch": [
+        "next_dialog": [
             "00154",
             "00155",
             "00156"
         ]
     },
     "00153": {
-
+        "id":153,
+        "data":"你听见了一些奇怪的响动，似乎由洞内传来……",
+        "speaker":"000",
+        "has_branch":true,
+        "next_dialog":[
+            "00157",
+            "00158"
+        ]
     },
-
+    "00154": {
+        "id":154,
+        "data":"去用它把石板上的文字拓印下来吧。",
+        "speaker":"000",
+        "has_branch":false,
+        "next_dialog":[
+            "00102"
+        ],
+        "effect":{
+            "EPP":1,
+            "INT":1
+        }
+    },
+    "00155": {
+        "id":155,
+        "data":"先去别的地方看看吧。",
+        "speaker":"001",
+        "has_branch":false,
+        "next_dialog":[
+            "00102"
+        ]
+    },
+    "00156": {
+        "id":156,
+        "data":"或许这里还有什么东西，不妨再找一找吧？",
+        "speaker":"001",
+        "has_branch":true,
+        "rand_branch":true,
+        "next_dialog":[
+            "00157"
+        ]
+    },
     "00170": {
         "id": 170,
         "data": "石壁上似乎有画着什么东西。",
         "speaker":"000",
         "has_branch":false,
-        "next_branch": [
+        "next_dialog": [
             "00171"
         ]
     }
