@@ -9,6 +9,7 @@ int main() {
    std::string userName;
    std::cout << "请输入您的用户名（新用户可新建用户名）" << std::endl;
    std::cin >> userName;
+   std::cout << "当游戏进行到需要您进行键盘输入时，输入q即可退出" << std::endl;
    std::string userFileName = "data\\" + userName + "_history.json";
    std::fstream f(userFileName);
    bool continueFlag = false;
@@ -30,15 +31,21 @@ int main() {
          }
       }
    }
+   Character *character = new Character(userName);
    Dialog dial;
    if (continueFlag == false) {
       dial = Dialog("00000");
+      dial.setCharacter(character);
    }
    else {
       std::string prevDial;
       f.open(userFileName, std::ios::in);
       getline(f, prevDial);
       dial = Dialog(prevDial);
+      character->readFromJson(f);
+      dial.setCharacter(character);
+      f.close();
+      f.open(userFileName, std::ios::in | std::ios::trunc);
       f.close();
    }
    dial.showDialog();
@@ -49,7 +56,8 @@ int main() {
       std::string nextDial =  dial.getNextDialog();
       if (nextDial.length() == 0) {
          f.open(userFileName, std::ios::out);
-         f << std::setfill('0') << std::setw(5) << dial.getDialogId();
+         f << std::setfill('0') << std::setw(5) << dial.getDialogId() << std::endl;
+         character->writeToJson(f);
          f.close();
          return 0;
       }
