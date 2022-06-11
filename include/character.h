@@ -12,12 +12,24 @@ class Character {
     double intellectual = 1.00;
     double eloquence = 1.00;
     double creativity = 1.00;
+    double epiphany = 1.00;
 public:
     Character() {};
     Character(std::string name) : name(name) {};
     virtual ~Character();
     std::string getName(void) {return name;}
     void setName(std::string name) {this->name = name;}
+    void increaseProductivity(double amount) {this->productivity += amount; }
+    void increaseDiligence(double amount) {this->diligence += amount; }
+    void increaseLeadership(double amount) {this->leadership += amount; }
+    void increaseReligion(double amount) {this->religion += amount; }
+    void increaseIntellectual(double amount) {this->intellectual += amount; }
+    void increaseEloquence(double amount) {this->eloquence += amount; }
+    void increaseCreativity(double amount) {this->creativity += amount; }
+    void increaseEpiphany(double amount) {this->epiphany += amount; }
+
+    // Only used for debug
+    void printCharacter();
 };
 
 #endif
