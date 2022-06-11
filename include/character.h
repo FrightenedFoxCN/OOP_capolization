@@ -28,6 +28,9 @@ public:
     void increaseCreativity(double amount) {this->creativity += amount; }
     void increaseEpiphany(double amount) {this->epiphany += amount; }
 
+    void applyEffect(std::string id, double amount);
+    void writeToJson(std::string name);
+
     // Only used for debug
     void printCharacter();
 };
