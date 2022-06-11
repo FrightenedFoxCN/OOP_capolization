@@ -9,7 +9,7 @@ int main() {
    std::string userName;
    std::cout << "请输入您的用户名（新用户可新建用户名）" << std::endl;
    std::cin >> userName;
-   std::string userFileName = userName + "_history.json";
+   std::string userFileName = "data\\" + userName + "_history.json";
    std::fstream f(userFileName);
    bool continueFlag = false;
    if (f.good()) {
@@ -36,7 +36,7 @@ int main() {
    else {
       std::string prevDial;
       f.open(userFileName, std::ios::in);
-      f >> prevDial;
+      getline(f, prevDial);
       dial = Dialog(prevDial);
       f.close();
    }

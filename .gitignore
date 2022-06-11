@@ -33,3 +33,6 @@
 
 # Debug resources
 .vscode/*
+
+# History data
+data/*
