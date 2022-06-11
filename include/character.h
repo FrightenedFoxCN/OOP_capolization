@@ -16,7 +16,7 @@ class Character {
 public:
     Character() {};
     Character(std::string name) : name(name) {};
-    virtual ~Character();
+    virtual ~Character() {};
     std::string getName(void) {return name;}
     void setName(std::string name) {this->name = name;}
     void increaseProductivity(double amount) {this->productivity += amount; }
@@ -31,6 +31,7 @@ public:
     void applyEffect(std::string id, double amount);
     bool testCondition(std::string id, double amount, bool(*comp)(double, double));
     void writeToJson(std::string name);
+    static Character *readFromJson(std::string name);
 
     // Only used for debug
     void printCharacter();

@@ -17,7 +17,7 @@ Dialog::Dialog(std::string s) {
         randBranch = dialog_json[s]["rand_branch"].get<bool>();
         uint32_t tot_possibility = 0;
         for (auto a:dialog_json[s]["possibility"]) {
-            tot_possibility += a;
+            tot_possibility += a.get<uint32_t>();
         }
         for (auto a:dialog_json[s]["possibility"]) {
             possibility.push_back(float(a) / float(tot_possibility));
