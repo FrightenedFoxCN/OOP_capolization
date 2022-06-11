@@ -22,8 +22,8 @@ public:
 
     void applyEffect(std::string id, double amount);
     bool testCondition(std::string id, double amount, bool(*comp)(double, double));
-    void writeToJson(std::string name);
-    static Character *readFromJson(std::string name);
+    void writeToJson(std::fstream &os);
+    static Character *readFromJson(std::fstream &is);
 
     // Only used for debug
     void printCharacter();

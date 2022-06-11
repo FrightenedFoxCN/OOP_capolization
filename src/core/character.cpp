@@ -59,11 +59,10 @@ void Character::applyEffect(std::string id, double amount) {
     }
 }
 
-Character *Character::readFromJson(std::string name) {
+Character *Character::readFromJson(std::fstream &is) {
     nlohmann::json js;
-    std::ifstream reader(name + ".json");
     std::string username;
-    reader >> js;
+    is >> js;
     if (js.count("name")) {
         username = js["name"];
     } else {
@@ -114,7 +113,7 @@ Character *Character::readFromJson(std::string name) {
     ERROR: throw std::runtime_error("Read character failed");
 }
 
-void Character::writeToJson(std::string name) {
+void Character::writeToJson(std::fstream &os) {
     std::map<std::string, double> c_map = {
         {"PRD", productivity}, {"DIL", diligence}, {"LDS", leadership}, 
         {"RLG", religion}, {"INT", intellectual}, {"ELQ", eloquence}, {"CRT", creativity}, 
@@ -131,9 +130,7 @@ void Character::writeToJson(std::string name) {
         {"EPP", epiphany},
         {"name", this->getName()}
     };
-    std::ofstream writer(name + ".json");
-    writer << j_map;
-    writer.close();
+    os << j_map;
 }
 
 bool Character::testCondition(std::string id, double amount, bool(*comp)(double, double)) {
